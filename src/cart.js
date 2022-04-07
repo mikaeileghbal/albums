@@ -13,31 +13,21 @@ const cart = {
   },
 };
 
-const album = {
-  addToCart: function (item) {
-    cart.add(item);
-  },
-  removeFromCart: function (item) {
-    console.log("Delete from cart: " + item);
-  },
-};
-
 function updateCart(topic, data) {
   switch (topic) {
     case actions.ADD_ITEM:
       console.log("Add called");
-      album.addToCart(data);
+      cart.add(data);
       break;
 
     case actions.REMOVE_ITEM:
       console.log("Remove called");
-      album.removeFromCart(data);
+      cart.remove(data);
       break;
   }
-  return cart.getCart();
 }
 
-export default album;
+export default cart;
 
 pubsub.subscribe(actions.ADD_ITEM, updateCart);
 pubsub.subscribe(actions.REMOVE_ITEM, updateCart);

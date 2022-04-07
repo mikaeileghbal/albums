@@ -1,4 +1,4 @@
-import album from "./album.js";
+import cart from "./cart.js";
 import actions from "./actions.js";
 import pubsub from "./pubsub.js";
 
